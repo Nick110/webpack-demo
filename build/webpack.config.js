@@ -16,7 +16,7 @@ const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
 
 module.exports = {
     entry: {
-        main: path.resolve(__dirname, '../src/main.js'),
+        main: path.resolve(__dirname, '../src/index.tsx'),
     },    // 入口文件
     output: {
         filename: 'js/[name].[hash:8].js',      // 打包后的文件名称
@@ -43,6 +43,17 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
+                test: /\.tsx?/,
+                use: [
+                    {
+                        loader: 'awesome-typescript-loader',
+                        options: {
+
+                        }
+                    },
+                ]
+            },
+            {
                 test: /\.css$/,
                 use: [{
                     loader: devMode ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
@@ -59,18 +70,21 @@ module.exports = {
             },
             {
                 test: /\.less$/,
-                use: [{
-                    loader: devMode ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
-                    options: {
-                        publicPath: "../dist/css/",
-                        hmr: devMode
+                use: [
+                    // {
+                    //     loader: devMode ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
+                    //     options: {
+                    //         publicPath: "../dist/css/",
+                    //         hmr: devMode
+                    //     }
+                    // }, 
+                    'css-loader', 'less-loader', {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: [require('autoprefixer')]
+                        }
                     }
-                }, 'css-loader', 'less-loader', {
-                    loader: 'postcss-loader',
-                    options: {
-                        plugins: [require('autoprefixer')]
-                    }
-                }]
+                ]
             },
             {
                 test: /\.vue$/,
@@ -174,10 +188,10 @@ module.exports = {
             { from: 'static', to: 'static' }
         ]),
         // 打包文件分析
-        new BundleAnalyzerPlugin({
-            analyzerHost: '127.0.0.1',
-            analyzerPort: 8889
-        })
+        // new BundleAnalyzerPlugin({
+        //     analyzerHost: '127.0.0.1',
+        //     analyzerPort: 8889
+        // })
     ],
 
     resolve: {
@@ -186,13 +200,6 @@ module.exports = {
             '@': path.resolve(__dirname, '../src')
         },
         // 能够使用户在引入模块时不带扩展名
-        extensions: ['.js', '.json', '.vue']
+        extensions: ['.js', '.jsx', '.tsx', '.ts', '.json', '.vue']
     },
-
-    devServer: {
-        port: 3000,
-        hot: true,
-        contentBase: '../dist',
-        open: true  // 启动后自动打开浏览器
-    }
 }

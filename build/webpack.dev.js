@@ -7,7 +7,8 @@ module.exports = merge(webpackConfig, {
     devServer: {
         port: 3000,
         hot: true,
-        contentBase: '../dist'
+        contentBase: '../dist',
+        open: true  // 启动后自动打开浏览器
     },
     plugins: [
         // 热替换模块

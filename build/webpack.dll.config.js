@@ -8,11 +8,11 @@
 const path = require("path");
 const webpack = require("webpack");
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     // 你想要打包的模块的数组
     entry: {
         // vendor：第三方库
-        vendor: ['vue', 'element-ui']
+        vendor: ['vue']
     },
     output: {
         path: path.resolve(__dirname, '../static/js'), // 打包后文件输出的位置
