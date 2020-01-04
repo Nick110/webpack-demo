@@ -1,8 +1,12 @@
 import * as React from "react";
 import * as ReactDom from "react-dom";
-import Hello from "./Hello";
+import {HashRouter} from 'react-router-dom';
+import App from "./app";
+import Routes from './Routes';
 
 ReactDom.render(
-    <Hello name="TypeScript" enthusiasmLevel={10} />,
+    <HashRouter>
+        <Routes/>
+    </HashRouter>,
     document.getElementById("app") as HTMLElement
 );

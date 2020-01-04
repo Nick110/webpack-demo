@@ -8,7 +8,8 @@ interface IProps {
 }
 
 // 这里是把泛型参数提前到接口名上
-const Hello: SFC<IProps> = (props: IProps) => {
+// SFC是个接口
+let Hello: SFC<IProps> = function(props) {
 
     const { name, enthusiasmLevel = 1 } = props;
 
