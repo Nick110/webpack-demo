@@ -196,7 +196,6 @@ module.exports = {
 
     resolve: {
         alias: {
-            'vue$': 'vue/dist/vue.runtime.esm.js',
             '@': path.resolve(__dirname, '../src')
         },
         // 能够使用户在引入模块时不带扩展名
