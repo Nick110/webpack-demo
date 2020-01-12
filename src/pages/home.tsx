@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Route, Switch, Link } from 'react-router-dom';
 import Hello from './hello';
 import Children from './children';
 
@@ -33,7 +34,13 @@ class Home extends React.Component<object, IState> {
     render() {
         return (
             <>
-                <Hello name="TypeScript" enthusiasmLevel={10} />
+                <Link to="/hello">to Hello</Link>
+                <Switch>
+                    <Route exact path='/hello'>
+                        <Hello name="TypeScript" enthusiasmLevel={10} />
+                    </Route>
+                </Switch>
+    
                 <div>
                     {this.state.text}
                     <p onClick={this.updateCount}>点我增加</p>

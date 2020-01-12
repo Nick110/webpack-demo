@@ -193,12 +193,4 @@ module.exports = {
         //     analyzerPort: 8889
         // })
     ],
-
-    resolve: {
-        alias: {
-            '@': path.resolve(__dirname, '../src')
-        },
-        // 能够使用户在引入模块时不带扩展名
-        extensions: ['.js', '.jsx', '.tsx', '.ts', '.json', '.vue']
-    },
 }
