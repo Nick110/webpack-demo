@@ -5,7 +5,6 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const vueLoaderPlugin = require('vue-loader/lib/plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const devMode = process.argv.indexOf('--mode=production') === -1;
@@ -55,13 +54,7 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: [{
-                    loader: devMode ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
-                    options: {
-                        publicPath: "../dist/css/",
-                        hmr: devMode
-                    }
-                }, 'css-loader', {
+                use: ['css-loader', {
                     loader: 'postcss-loader',
                     options: {
                         plugins: [require('autoprefixer')]
@@ -70,32 +63,13 @@ module.exports = {
             },
             {
                 test: /\.less$/,
-                use: [
-                    // {
-                    //     loader: devMode ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
-                    //     options: {
-                    //         publicPath: "../dist/css/",
-                    //         hmr: devMode
-                    //     }
-                    // }, 
-                    'css-loader', 'less-loader', {
+                use: ['css-loader', 'less-loader', {
                         loader: 'postcss-loader',
                         options: {
                             plugins: [require('autoprefixer')]
                         }
                     }
                 ]
-            },
-            {
-                test: /\.vue$/,
-                use: ['cache-loader', 'thread-loader', {
-                    loader: 'vue-loader',
-                    options: {
-                        compilerOptions: {
-                            preserveWhitespace: false
-                        }
-                    }
-                }]
             },
             {
                 test: /\.(jpe?g|png|gif)$/i,  //图片文件
@@ -163,7 +137,6 @@ module.exports = {
             filename: devMode ? '[name].css' : '[name].[hash].css',
             chunkFilename: devMode ? '[id].css' : '[id].[hash].css'
         }),
-        new vueLoaderPlugin(),
         new HappyPack({
             id: 'happyBabel',  // 与loader对应的id标识
             // 用法和loader的配置一样，注意这里是loaders

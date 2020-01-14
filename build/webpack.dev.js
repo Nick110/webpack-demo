@@ -20,6 +20,6 @@ module.exports = merge(webpackConfig, {
             '@': path.resolve(__dirname, '../src')
         },
         // 能够使用户在引入模块时不带扩展名
-        extensions: ['.js', '.jsx', '.tsx', '.ts', '.json', '.vue']
+        extensions: ['.js', '.jsx', '.tsx', '.ts', '.json']
     },
 })

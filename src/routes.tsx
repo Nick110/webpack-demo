@@ -41,7 +41,7 @@ export default function Routes() {
         <Switch>
             {
                 routes.map(route => {
-                    return <Route key={route.path} exact={!route.noExact} path={route.path} component={route.component}></Route>
+                    return <Route key={route.path} path={route.path} component={route.component}></Route>
                 })
             }
             {/* <Route exact path='/' component={Home} /> */}

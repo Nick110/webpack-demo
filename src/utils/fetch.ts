@@ -11,9 +11,14 @@ let headers = {
     "accesstoken": 'xxxxxxxxxxxxx'  //
 };
 
-let origin = 'http://localhost:3000'
+let origin = 'http://localhost:3000';
 
-function request<T>(url: string, params: T, method: string='POST') {
+interface IResponse<T> {
+    code: T
+}
+
+
+function request<T>(url: string, params: T, method: string='POST'): Promise<IResponse<number>> {
     return new Promise((resolve, reject) => {
         fetch(`${origin}${url}`, {
             method,
