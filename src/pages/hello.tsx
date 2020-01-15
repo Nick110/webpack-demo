@@ -27,7 +27,7 @@ let Hello: SFC<IProps> = function (props) {
 
 
     // 使用useSelector获取redux值
-    const test = useSelector(state => state.test)
+    const test = useSelector(state => state.todoReducer.test);
 
     function click(event: MouseEvent) {
         setCount(count + 1);

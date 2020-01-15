@@ -63,12 +63,17 @@ module.exports = {
             },
             {
                 test: /\.less$/,
-                use: ['css-loader', 'less-loader', {
-                        loader: 'postcss-loader',
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
                         options: {
-                            plugins: [require('autoprefixer')]
+                            modules:{
+                                localIdentName: '[name]__[local]--[hash:base64:5]'
+                            }
                         }
-                    }
+                    },
+                    'less-loader'
                 ]
             },
             {
@@ -153,13 +158,6 @@ module.exports = {
             ],
             threadPool: happyThreadPool  // 共享进程池
         }),
-        new webpack.DllReferencePlugin({
-            context: __dirname,
-            manifest: require('../static/vendor-manifest.json')
-        }),
-        new CopyWebpackPlugin([ // 拷贝生成的文件到dist目录 这样每次不必手动去cv
-            { from: 'static', to: 'static' }
-        ]),
         // 打包文件分析
         // new BundleAnalyzerPlugin({
         //     analyzerHost: '127.0.0.1',

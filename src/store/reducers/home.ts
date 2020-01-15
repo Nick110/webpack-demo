@@ -1,5 +1,5 @@
 const initialState = {
-    test: '我是redux里的初始值'
+    test: '我是redux里的第二个值'
 };
 
 interface State {
@@ -8,7 +8,7 @@ interface State {
 
 export default function(state: State = initialState, action): State {
     switch (action.type) {
-        case 'ADD':
+        case 'ADD_SECOND':
             return {
                 ...state,
                 ...action.payload

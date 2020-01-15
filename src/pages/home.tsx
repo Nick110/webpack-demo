@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Route, Switch, Link } from 'react-router-dom';
 import Hello from './hello';
 import Children from './children';
+import BottomMenu from '@/components/BottomMenu';
 
 interface IState {
     count?: number,
@@ -46,6 +47,7 @@ class Home extends React.Component<object, IState> {
                     <p onClick={this.updateCount}>点我增加</p>
                 </div>
                 <Children num={this.state.count}/>
+                {/* <BottomMenu active={1}/> */}
             </>
         )
     }

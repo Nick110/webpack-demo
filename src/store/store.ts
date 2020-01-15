@@ -1,6 +1,11 @@
 import todoReducer from './reducers/todo';
-import { createStore } from "redux";
+import homeReducer from './reducers/home';
+import { createStore, combineReducers } from "redux";
 
-export default createStore(todoReducer);
+const reducer = combineReducers({
+    todoReducer,
+    homeReducer
+})
+export default createStore(reducer);
 
 
