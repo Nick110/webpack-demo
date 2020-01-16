@@ -4,6 +4,7 @@ import {HashRouter, BrowserRouter} from 'react-router-dom';
 import { Provider } from "react-redux";
 import store from './store/store';
 import Routes from './Routes';
+import './reset.less';
 
 ReactDom.render(
     <Provider store={store}>        

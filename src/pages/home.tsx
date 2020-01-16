@@ -35,7 +35,7 @@ class Home extends React.Component<object, IState> {
     render() {
         return (
             <>
-                <Link to="/hello">to Hello</Link>
+                {/* <Link to="/hello">to Hello</Link>
                 <Switch>
                     <Route exact path='/hello'>
                         <Hello name="TypeScript" enthusiasmLevel={10} />
@@ -46,8 +46,8 @@ class Home extends React.Component<object, IState> {
                     {this.state.text}
                     <p onClick={this.updateCount}>点我增加</p>
                 </div>
-                <Children num={this.state.count}/>
-                {/* <BottomMenu active={1}/> */}
+                <Children num={this.state.count}/> */}
+                <BottomMenu active={1}/>
             </>
         )
     }
