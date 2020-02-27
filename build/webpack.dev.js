@@ -9,7 +9,8 @@ module.exports = merge(webpackConfig, {
         port: 8888,
         hot: true,
         contentBase: '../dist',
-        open: true  // 启动后自动打开浏览器
+        open: true,  // 启动后自动打开浏览器
+        historyApiFallback: true
     },
     plugins: [
         // 热替换模块

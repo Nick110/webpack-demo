@@ -3,13 +3,18 @@ import { Route, Switch, Link } from 'react-router-dom';
 import Hello from './hello';
 import Children from './children';
 import BottomMenu from '@/components/BottomMenu';
+import Home from './home';
+import Video from './video';
+import My from './my';
+import Yuncun from './yuncun';
+import Account from './account';
 
 interface IState {
     count?: number,
     text: string
 }
 
-class Home extends React.Component<object, IState> {
+class Index extends React.Component<object, IState> {
     constructor(props) {
         super(props);
         this.state = {
@@ -47,10 +52,17 @@ class Home extends React.Component<object, IState> {
                     <p onClick={this.updateCount}>点我增加</p>
                 </div>
                 <Children num={this.state.count}/> */}
-                <BottomMenu active={1}/>
+                <Switch>
+                    <Route path='/home' component={Home}></Route>
+                    <Route path='/video' component={Video}></Route>
+                    <Route path='/my' component={My}></Route>
+                    <Route path='/yuncun' component={Yuncun}></Route>
+                    <Route path='/account' component={Account}></Route>
+                </Switch>
+                <BottomMenu/>
             </>
         )
     }
 }
 
-export default Home;
+export default Index;
