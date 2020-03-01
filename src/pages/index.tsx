@@ -29,14 +29,6 @@ class Index extends React.Component<object, IState> {
         })
     }
 
-    componentWillUpdate(nextProps, nextState) {
-        console.log('父组件将要更新');
-    }
-
-    componentDidUpdate(prevProps, prevState) {
-        console.log('父组件更新完');
-    }
-
     render() {
         return (
             <>

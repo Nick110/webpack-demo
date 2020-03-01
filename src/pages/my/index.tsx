@@ -1,10 +1,10 @@
-import React, {SFC} from 'react';
+import React, {FC} from 'react';
 
 interface IProps {
     active?: number;
 }
 
-const my: SFC<IProps>  = function (props) {
+const my: FC<IProps>  = function (props) {
 
     return (<div>我的</div>)
 

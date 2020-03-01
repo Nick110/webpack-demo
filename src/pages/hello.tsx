@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState, useEffect, SFC, MouseEvent } from 'react';
+import { useState, useEffect, FC, MouseEvent } from 'react';
 import {request} from '@/utils/fetch';
 import { connect, useSelector, useDispatch } from "react-redux";
 
@@ -9,8 +9,8 @@ interface IProps {
 }
 
 // 这里是把泛型参数提前到接口名上
-// SFC是个接口
-let Hello: SFC<IProps> = function (props) {
+// FC是个接口
+let Hello: FC<IProps> = function (props) {
     const { name, enthusiasmLevel = 1 } = props;
     let [count, setCount] = useState(0);
     let [list, setList] = useState([]);

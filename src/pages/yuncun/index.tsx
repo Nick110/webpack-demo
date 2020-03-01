@@ -1,10 +1,10 @@
-import React, {SFC} from 'react';
+import React, {FC} from 'react';
 
 interface IProps {
     active?: number;
 }
 
-const yuncun: SFC<IProps>  = function (props) {
+const yuncun: FC<IProps>  = function (props) {
 
     return (<div>云村</div>)
 

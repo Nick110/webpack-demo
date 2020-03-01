@@ -36,15 +36,13 @@ const routes = [
 
 export default function Routes() {
     return (
-        // <Switch>
-        <>
+        <Switch>
             {
                 routes.map(route => {
                     return <Route key={route.path} path={route.path} component={route.component}></Route>
                 })
             }
             {/* <Route exact path='/' component={Home} /> */}
-        </>
-        // </Switch>
+        </Switch>
     );
 }

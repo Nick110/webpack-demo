@@ -30,19 +30,21 @@ module.exports = {
                 test: /\.js$/,
                 use: {
                     // 这里的babel-loader只会将 ES6/7/8语法转换为ES5语法，
-                    // 但是对新api并不会转换 例如(promise、Generator、Set、Maps、Proxy等)
-                    // loader: 'babel-loader',
-                    // options: {
-                    //     // 预设，许多插件的集合
-                    //     presets: ['@babel/preset-env']
-                    // }
+                    // 但是对新api并不会转换 例如(Promise、Generator、Set、Maps、Proxy等)
+                    loader: 'babel-loader'
                     // 将js处理文件交给id为happyBabel的Happypack实例
-                    loader: 'happypack/loader?id=happyBabel',
+                    // loader: 'happypack/loader?id=happyBabel',
                 },
                 exclude: /node_modules/
             },
             {
-                test: /\.tsx?/,
+                test: /\.tsx?$/,
+                loader: 'babel-loader',
+                exclude: /node_modules/
+            },
+            {
+                test: /\.tsx?$/,
+                include: /src/,
                 use: [
                     {
                         loader: 'awesome-typescript-loader',
@@ -54,12 +56,24 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: ['css-loader', {
-                    loader: 'postcss-loader',
-                    options: {
-                        plugins: [require('autoprefixer')]
-                    }
-                }]
+                use: [
+                    'style-loader', 'css-loader'
+                ]
+            }, 
+            // 处理开启css module导致antd-mobile的样式失效
+            {
+                test: /\.css$/,
+                // 添加  exclude: /node_modules/ 只对自己的css 开启module
+                exclude: /node_modules/, 
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true,
+                        },
+                    },
+                ]
             },
             {
                 test: /\.less$/,
@@ -142,22 +156,23 @@ module.exports = {
             filename: devMode ? '[name].css' : '[name].[hash].css',
             chunkFilename: devMode ? '[id].css' : '[id].[hash].css'
         }),
-        new HappyPack({
-            id: 'happyBabel',  // 与loader对应的id标识
-            // 用法和loader的配置一样，注意这里是loaders
-            loaders: [
-                {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: [
-                            ['@babel/preset-env']
-                        ],
-                        cacheDirectory: true
-                    }
-                }
-            ],
-            threadPool: happyThreadPool  // 共享进程池
-        }),
+        // new HappyPack({
+        //     id: 'happyBabel',  // 与loader对应的id标识
+        //     // 用法和loader的配置一样，注意这里是loaders
+        //     loaders: [
+        //         {
+        //             loader: 'babel-loader',
+        //             options: {
+        //                 presets: [
+        //                     ['@babel/preset-env']
+        //                 ],
+        //                 cacheDirectory: true
+        //             }
+        //         }
+        //     ],
+        //     threadPool: happyThreadPool  // 共享进程池
+        // }),
+        
         // 打包文件分析
         // new BundleAnalyzerPlugin({
         //     analyzerHost: '127.0.0.1',

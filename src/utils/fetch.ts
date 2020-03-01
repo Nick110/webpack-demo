@@ -13,18 +13,18 @@ let headers = {
 
 let origin = 'http://localhost:3000';
 
-interface IResponse<T> {
-    code: T
-}
-
-
-function request<T>(url: string, params: T, method: string='POST'): Promise<IResponse<number>> {
+// 返回值是Promise泛型，resolve()的参数为any
+function request(url: string, params: any, method: string='POST'): Promise<any> {
     return new Promise((resolve, reject) => {
         fetch(`${origin}${url}`, {
             method,
             // headers: headers,
             body: JSON.stringify(params)
-        }).then(response => response.json()).then(responseData => resolve(responseData)).catch(err => {
+        }).then(response => 
+                response.json()
+            ).then(responseData => 
+                resolve(responseData)
+            ).catch(err => {
             console.log(url + '请求失败', err);
             reject(err);
         })

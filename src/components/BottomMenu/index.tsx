@@ -1,4 +1,4 @@
-import React, {useState, SFC } from 'react';
+import React, {useState, FC } from 'react';
 import Styles from './index.less';
 import {Link, useHistory} from 'react-router-dom';
 
@@ -13,7 +13,7 @@ interface IProps {
     items?: Array<Item>;
 }
 
-const bottomMenu: SFC<IProps>  = function (props) {
+const bottomMenu: FC<IProps>  = function (props) {
     let {items = [
         {key: 1, name: '发现', icon: 'discover', url: '/home'}, 
         {key: 2, name: '视频', icon: 'video', url: '/video'}, 
