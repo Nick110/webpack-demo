@@ -25,6 +25,7 @@ const home: FC<IProps> = function (props) {
                 autoplay={true}
                 infinite
                 dots={true}
+                dotActiveStyle={{backgroundColor: '#c20c0c'}}
             >
                 {
                     banners.map((item, index) => <img src={item.imageUrl} key={item.targetId}></img>)

@@ -1,14 +1,19 @@
 const initialState = {
-    test: '我是redux里的第二个值'
+    keywords: '音乐/视频/电台/用户'
 };
 
 interface State {
-    test: string
+    keywords: string;
 }
 
 export default function(state: State = initialState, action): State {
     switch (action.type) {
         case 'ADD_SECOND':
+            return {
+                ...state,
+                ...action.payload
+            }
+        case 'CHANGE':
             return {
                 ...state,
                 ...action.payload

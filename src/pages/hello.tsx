@@ -25,7 +25,6 @@ let Hello: FC<IProps> = function (props) {
         })
     }, [list]);
 
-
     // 使用useSelector获取redux值
     const test = useSelector(state => state.todoReducer.test);
 

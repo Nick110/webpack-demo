@@ -10,15 +10,17 @@
         [
             "@babel/preset-env",
             {
-                "modules": false
+                "modules": false,
+                "useBuiltIns":"usage"
             }
         ]
     ],
+    // antd-mobile按需加载
     "plugins": [
         [
             "import",
             { 
-                libraryName: "antd-mobile", style: "css"
+                "libraryName": "antd-mobile", "style": "css"
             }
         ] // `style: true` 会加载 less 文件
     ]
