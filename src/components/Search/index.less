@@ -1,3 +1,73 @@
 .search {
     width: 100%;
+    .hot {
+        width: 100%;
+        position: absolute;
+        top: 4.4rem;
+        bottom: 5rem;
+        overflow: scroll;
+        z-index: 10;
+        background-color: #ffffff;
+        padding: 2rem 0;
+
+        & > p {
+            padding: 0 0 1rem 2rem;
+        }
+
+        .hotWrapper {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .hotItem {
+            width: 50%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            box-sizing: border-box;
+            & > span {
+                display: inline-block;
+                width: 2.4rem;
+            }
+        }
+
+        .top4 {
+            & > span {
+                color: #c20c0c;
+            }
+
+            .searchWord {
+                font-weight: 700;
+            }
+        }
+
+        .searchWord {
+            display: flex;
+            align-items: center;
+            span {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            span.short {
+                max-width: 9rem;
+            }
+            img {
+                max-width: 2.3rem;
+                margin-left: 0.5rem;
+                max-height: 1.4rem;
+            }
+        }
+
+        .content {
+            width: 12rem;
+            color: #6d6d6d;
+            font-size: 1rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            margin-top: 0.8rem;
+        }
+    }
 }
