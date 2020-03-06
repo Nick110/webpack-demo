@@ -2,12 +2,15 @@
 
 const path = require('path');
 const webpack = require('webpack');
+const lessToJs = require('less-vars-to-js');
+const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const devMode = process.argv.indexOf('--mode=production') === -1;
+const theme = lessToJs(fs.readFileSync(path.resolve(__dirname, '../src/theme.less'), 'utf8'));
 // HappyPack用于开启多线程Loader转换
 const HappyPack = require('happypack');
 const os = require('os');
@@ -87,7 +90,12 @@ module.exports = {
                             }
                         }
                     },
-                    'less-loader'
+                    {
+                        loader: 'less-loader',
+                        options: {
+                            modifyVars: theme
+                        }
+                    }
                 ]
             },
             {
