@@ -4,6 +4,7 @@ import Styles from './index.less';
 import {Carousel, SearchBar} from 'antd-mobile';
 import Search from '@/components/Search';
 import HomeTab from '@/components/HomeTab';
+import Recommend from '@/components/Recommend';
 
 interface IProps {
     active?: number;
@@ -64,6 +65,8 @@ const home: FC<IProps> = function (props) {
                 </Carousel>
 
                 <HomeTab data={tabData}/>
+
+                <Recommend title={'为您精挑细选'} btnText={'查看更多'} fetchUrl={'/personalized'} limit={6}/>
             </div>
             
         </div>

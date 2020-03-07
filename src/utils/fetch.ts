@@ -15,12 +15,13 @@ let origin = 'http://192.168.0.105:3000';
 
 // 返回值是Promise泛型，resolve()的参数为any
 function request(url: string, params: any, method: string='POST'): Promise<any> {
-    return new Promise((resolve, reject) => {
-        fetch(`${origin}${url}`, {
+    const options = method === 'GET' ? {method} : {
             method,
             // headers: headers,
             body: JSON.stringify(params)
-        }).then(response => 
+        }
+    return new Promise((resolve, reject) => {
+        fetch(`${origin}${url}`, options).then(response => 
                 response.json()
             ).then(responseData => 
                 resolve(responseData)
