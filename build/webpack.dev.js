@@ -6,7 +6,7 @@ module.exports = merge(webpackConfig, {
     mode: 'development',
     devtool: 'cheap-module-eval-source-map',
     devServer: {
-        host: '192.168.0.105',
+        host: '0.0.0.0',
         port: 8888,
         hot: true,
         contentBase: '../dist',

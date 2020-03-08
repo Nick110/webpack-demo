@@ -51,7 +51,7 @@ const home: FC<IProps> = function (props) {
     return (
         <div className={Styles.home}>
             <Search/>
-            <div className={Styles.bannerWrapper}>
+            <div className={Styles.pageWrapper}>
                 <div className={Styles.red}></div>
                 <Carousel
                     autoplay={true}
