@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Loadable from 'react-loadable';
 
-
 const MyLoadingComponent = ({ isLoading, error }) => {
     if (isLoading) {
         return null;
@@ -24,13 +23,6 @@ const routes = [
             loading: MyLoadingComponent
         })
     },
-    // {
-    //     path: '/hello',
-    //     component: Loadable({
-    //         loader: () => import(/* webpackChunkName: "hello" */ './pages/hello'),
-    //         loading: MyLoadingComponent
-    //     })
-    // },
 ]
 
 

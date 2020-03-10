@@ -8,10 +8,11 @@
         overflow: scroll;
         z-index: 10;
         background-color: #ffffff;
-        padding: 2rem 0;
+        padding: 2rem 0.5rem;
+        box-sizing: border-box;
 
         & > p {
-            padding: 0 0 1rem 2rem;
+            padding: 0 0 1rem 1.5rem;
         }
 
         .hotWrapper {
@@ -21,14 +22,13 @@
         .hotItem {
             width: 50%;
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
             align-items: center;
             padding: 1rem;
             box-sizing: border-box;
             & > span {
                 display: inline-block;
                 width: 1.8rem;
-                margin-right: 0.7rem;
             }
         }
 

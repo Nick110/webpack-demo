@@ -8,6 +8,7 @@ import Video from './video';
 import My from './my';
 import Yuncun from './yuncun';
 import Account from './account';
+import SearchResult from '@/pages/searchResult';
 
 interface IState {
     count?: number,

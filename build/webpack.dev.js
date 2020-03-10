@@ -9,7 +9,7 @@ module.exports = merge(webpackConfig, {
         host: '0.0.0.0',
         port: 8888,
         hot: true,
-        contentBase: '../dist',
+        quiet: true,
         open: true,  // 启动后自动打开浏览器
         historyApiFallback: true
     },

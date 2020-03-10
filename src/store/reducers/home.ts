@@ -1,5 +1,5 @@
 const initialState = {
-    keywords: '音乐/视频/电台/用户'
+    keywords: ''
 };
 
 interface State {
