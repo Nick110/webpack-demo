@@ -16,7 +16,7 @@ const MyLoadingComponent = ({ isLoading, error }) => {
 const routes = [
     {
         path: '/',
-        noExact: true,
+        exact: true,
         component: Loadable({
             // import里的注释是给打包的文件命名，chunkFilename
             loader: () => import(/* webpackChunkName: "index" */ './pages/index'),
@@ -26,7 +26,7 @@ const routes = [
 ]
 
 
-export default function Routes() {
+function Routes() {
     return (
         <Switch>
             {
@@ -34,7 +34,8 @@ export default function Routes() {
                     return <Route key={route.path} path={route.path} component={route.component}></Route>
                 })
             }
-            {/* <Route exact path='/' component={Home} /> */}
         </Switch>
     );
 }
+
+export default Routes;

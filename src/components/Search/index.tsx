@@ -3,17 +3,19 @@ import Styles from './index.less';
 import {SearchBar} from 'antd-mobile';
 import {request} from '@/utils/fetch';
 import { useSelector, useDispatch } from "react-redux";
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 import Hot from './hot';
-interface IProps {
+
+export interface IProps extends RouteComponentProps<any> {
     keyword?: string;
+    history: any;
 }
 
-const search: FC<IProps> = function(props) {
+const search = function(props: IProps) {
 
-     // 使用useSelector获取redux值
-     const keywords = useSelector(state => state.homeReducer.keywords);
-
-     const dispatch = useDispatch();
+    // 使用useSelector获取redux值
+    const keywords = useSelector(state => state.homeReducer.keywords);
+    const dispatch = useDispatch();
 
     const [defaultKeywords, setDefaultKeywords] = useState<string>('');
     const [hotSearch, setHotSearch] = useState<boolean>(false);
@@ -21,7 +23,6 @@ const search: FC<IProps> = function(props) {
     useEffect(() => {
         getDefaultKeywords();
     }, [])
-
    
     const getDefaultKeywords = async () => {
         const res = await request('/search/default', {});
@@ -33,11 +34,9 @@ const search: FC<IProps> = function(props) {
         return result;
     }
 
-    const submit = (): void => {
-        if(keywords == '') {
-            dispatch({type: 'CHANGE', payload: {keywords: defaultKeywords}});
-        }
-        getSearchResult(defaultKeywords);
+    const submit = (val: string): void => {
+        dispatch({type: 'CHANGE', payload: {keywords: val || defaultKeywords}});
+        props.history.push('/home/search');
     }
 
     const toggleHot = (visible: boolean): void => {
@@ -69,4 +68,4 @@ const search: FC<IProps> = function(props) {
     )
 }
 
-export default search;
+export default withRouter<IProps>(search);

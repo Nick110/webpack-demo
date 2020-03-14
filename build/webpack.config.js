@@ -23,7 +23,8 @@ module.exports = {
     output: {
         filename: 'js/[name].[hash:8].js',      // 打包后的文件名称
         path: path.resolve(__dirname, '../dist'),  // 打包后的目录
-        chunkFilename: 'js/[name].[hash:8].js'  // 此选项决定了非入口(non-entry) chunk 文件的名称
+        chunkFilename: 'js/[name].[hash:8].js',  // 此选项决定了非入口(non-entry) chunk 文件的名称
+        publicPath: '/'
     },
 
     module: {

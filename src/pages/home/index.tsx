@@ -12,7 +12,7 @@ interface IProps {
     active?: number;
 }
 
-const home: FC<IProps> = function (props) {
+const main: FC<IProps> = function (props) {
 
     const [banners, setBanners] = useState([]);
 
@@ -52,9 +52,6 @@ const home: FC<IProps> = function (props) {
 
     return (
         <div className={Styles.home}>
-            <Route path='/search'>
-                <SearchResult/>
-            </Route>
             <Search/>
             <div className={Styles.pageWrapper}>
                 <div className={Styles.red}></div>
@@ -79,6 +76,15 @@ const home: FC<IProps> = function (props) {
     )
 
 
+}
+
+const home = (props) => {
+    return (
+        <Switch>
+            <Route path='/home/search' component={SearchResult}></Route>
+            <Route path='/home' exact component = {main}></Route>
+        </Switch>
+    )
 }
 
 export default home;
