@@ -29,7 +29,7 @@ const bottomMenu: FC<IProps>  = function (props) {
             {
                 items.map((item) => 
                     <Link key={item.key} to={item.url}
-                        className={history.location.pathname === item.url ? Styles.active : ''}
+                        className={history.location.pathname.indexOf(item.url) != -1 ? Styles.active : ''}
                     >
                         <i className={`iconfont icon-${item.icon}`}></i>
                         <br/>

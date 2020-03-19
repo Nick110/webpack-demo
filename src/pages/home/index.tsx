@@ -80,7 +80,7 @@ const main: FC<IProps> = function (props) {
 
 const home = (props) => {
     return (
-        <Switch>
+        <Switch >
             <Route path='/home/search' component={SearchResult}></Route>
             <Route path='/home' exact component = {main}></Route>
         </Switch>

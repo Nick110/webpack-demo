@@ -1,22 +1,32 @@
 const initialState = {
-    keywords: ''
+    keywords: '海阔天空',
+    searchResult: {
+        songs: []
+    }
 };
 
 interface State {
     keywords: string;
+    searchResult: object;
 }
 
-export default function(state: State = initialState, action): State {
+export default function(state = initialState, action): State {
     switch (action.type) {
-        case 'ADD_SECOND':
+        case 'RESET':
             return {
-                ...state,
-                ...action.payload
+                ...initialState,
             }
         case 'CHANGE':
             return {
                 ...state,
                 ...action.payload
+            }
+        case 'CHANGE_SEARCH_RESULT':
+            return {
+                ...state,
+                searchResult: {
+                    ...action.payload
+                }
             }
         default: 
             return state

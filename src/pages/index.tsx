@@ -45,13 +45,16 @@ class Index extends React.Component<object, IState> {
                     <p onClick={this.updateCount}>点我增加</p>
                 </div>
                 <Children num={this.state.count}/> */}
-                <Switch>
-                    <Route path='/home' component={Home}></Route>
-                    <Route path='/video' component={Video}></Route>
-                    <Route path='/my' component={My}></Route>
-                    <Route path='/yuncun' component={Yuncun}></Route>
-                    <Route path='/account' component={Account}></Route>
-                </Switch>
+                <div style={{paddingBottom: 60}}>
+                    <Switch style={{paddingBottom: 40}}>
+                        <Route path='/home' component={Home}></Route>
+                        <Route path='/video' component={Video}></Route>
+                        <Route path='/my' component={My}></Route>
+                        <Route path='/yuncun' component={Yuncun}></Route>
+                        <Route path='/account' component={Account}></Route>
+                    </Switch>
+                </div>
+                
                 <BottomMenu/>
             </>
         )
