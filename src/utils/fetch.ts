@@ -11,7 +11,7 @@ let headers = {
     "accesstoken": 'xxxxxxxxxxxxx'  //
 };
 
-let origin = 'http://192.168.0.102:3000';
+let origin = 'http://192.168.0.104:3000';
 
 // 返回值是Promise泛型，resolve()的参数为any
 function request(url: string, params: any, method: string='POST'): Promise<any> {

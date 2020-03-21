@@ -5,7 +5,6 @@ import {request} from '@/utils/fetch';
 import SongList from '@/components/SongList';
 import Styles from './index.less';
 
-
 const tabs = [
     {
         title: '综合',
@@ -30,19 +29,24 @@ const searchResult = () => {
     const {songs} = useSelector(state => state.homeReducer.searchResult);
     const dispatch = useDispatch();
 
-    const search = async (keywords: string, type: number = 1, offset: number = 0, limit: number = 30): Promise<void> => {
-        const url = `/search?keywords=${keywords}&type=${type}&offset=${offset}&limit=${limit}`;
-        const res = await request(url, {});
-        if(res.code === 200) {
-            dispatch({
-                type: 'CHANGE_SEARCH_RESULT',
-                payload: {songs: res.result.songs}
-            })
-        }
-    }
+    // const search = async (keywords: string, type: number = 1, offset: number = 0, limit: number = 30): Promise<void> => {
+    //     const url = `/search?keywords=${keywords}&type=${type}&offset=${offset}&limit=${limit}`;
+    //     const res = await request(url, {});
+    //     if(res.code === 200) {
+    //         dispatch({
+    //             type: 'CHANGE_SEARCH_RESULT',
+    //             payload: {songs: res.result.songs}
+    //         })
+    //     }
+    // }
 
     useEffect(() => {
-        search(keywords);
+        dispatch({
+            type: 'SEARCH',
+            payload: {
+                keywords
+            }
+        })
     }, [])
 
     console.log(songs);
