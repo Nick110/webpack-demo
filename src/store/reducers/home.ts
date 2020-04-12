@@ -1,8 +1,10 @@
+/** @format */
+
 const initialState = {
     keywords: '海阔天空',
     searchResult: {
-        songs: []
-    }
+        songs: [],
+    },
 };
 
 interface State {
@@ -10,25 +12,25 @@ interface State {
     searchResult: object;
 }
 
-export default function(state = initialState, action): State {
+export default function (state = initialState, action): State {
     switch (action.type) {
         case 'RESET':
             return {
                 ...initialState,
-            }
+            };
         case 'CHANGE':
             return {
                 ...state,
-                ...action.payload
-            }
+                ...action.payload,
+            };
         case 'CHANGE_SEARCH_RESULT':
             return {
                 ...state,
                 searchResult: {
-                    ...action.payload
-                }
-            }
-        default: 
-            return state
+                    ...action.payload,
+                },
+            };
+        default:
+            return state;
     }
 }
