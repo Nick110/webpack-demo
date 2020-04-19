@@ -1,0 +1,159 @@
+[33mcommit 08f55a8d79f633a6b325c27f0e4f11ee702d105b[m[33m ([m[1;36mHEAD -> [m[1;32mdevelop[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Merge: 0c943e5 520bba0
+Author: Nick110 <1589744751@qq.com>
+Date:   Sun Apr 12 16:40:05 2020 +0800
+
+    Merge branch 'master' of https://github.com/Nick110/webpack-demo
+
+[33mcommit 0c943e574765530263e97c48c7778d988c7cac33[m
+Author: Nick110 <1589744751@qq.com>
+Date:   Sun Apr 12 16:38:38 2020 +0800
+
+    add eslint&prettier
+
+[33mcommit 520bba053e894ace0b85838320a0440b42a9e0bc[m
+Merge: b645744 33a8bf3
+Author: Kroos <30553189+Nick110@users.noreply.github.com>
+Date:   Sat Mar 21 23:21:52 2020 +0800
+
+    Merge pull request #1 from Nick110/dependabot/npm_and_yarn/acorn-6.4.1
+    
+    Bump acorn from 6.4.0 to 6.4.1
+
+[33mcommit b64574416b7ba406193bd9e937569a7ae6294951[m
+Author: Nick110 <1589744751@qq.com>
+Date:   Sat Mar 21 23:16:49 2020 +0800
+
+    add redux-saga
+
+[33mcommit a14bb7596f35ce40227c51b3910baa9e35a43335[m
+Author: Nick110 <1589744751@qq.com>
+Date:   Thu Mar 19 22:40:56 2020 +0800
+
+    add 搜索单曲
+
+[33mcommit 33a8bf36d8b703dcf6f643123f6e18701e165b86[m
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Sat Mar 14 16:33:20 2020 +0000
+
+    Bump acorn from 6.4.0 to 6.4.1
+    
+    Bumps [acorn](https://github.com/acornjs/acorn) from 6.4.0 to 6.4.1.
+    - [Release notes](https://github.com/acornjs/acorn/releases)
+    - [Commits](https://github.com/acornjs/acorn/compare/6.4.0...6.4.1)
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+[33mcommit f049b3e8599dd4a631531a32a6f66aa81684c5e0[m
+Author: Nick110 <1589744751@qq.com>
+Date:   Sat Mar 14 23:30:14 2020 +0800
+
+    history跳转
+
+[33mcommit 7512e763c89ee040437c9cd6513c59d226e2a7cb[m
+Author: Nick110 <1589744751@qq.com>
+Date:   Tue Mar 10 12:59:19 2020 +0800
+
+    二级路由bug
+
+[33mcommit f7a1736c0a5b64e64bb89600438213490c437a6d[m
+Author: Nick110 <1589744751@qq.com>
+Date:   Sun Mar 8 23:32:30 2020 +0800
+
+    add 推荐歌单
+
+[33mcommit 702e7ab7095f2d35750745992b0dfec644e68638[m
+Author: Nick110 <1589744751@qq.com>
+Date:   Sat Mar 7 23:14:16 2020 +0800
+
+    add 推荐歌单
+
+[33mcommit 1e9d420ce44ea1eb3cb6eb1b43cd54c96741bbb1[m
+Author: Nick110 <1589744751@qq.com>
+Date:   Fri Mar 6 23:23:15 2020 +0800
+
+    add 首页tab栏
+
+[33mcommit fcd0941759e937754120377c4fa5af4111f75533[m
+Author: Nick110 <1589744751@qq.com>
+Date:   Thu Mar 5 23:38:13 2020 +0800
+
+    add 热搜榜
+
+[33mcommit c2d6c62a9d4b94ad9f45f097dfa81312afe6401d[m
+Author: Nick110 <1589744751@qq.com>
+Date:   Mon Mar 2 23:16:28 2020 +0800
+
+    添加搜索关键字
+
+[33mcommit 2bbe88ef1fade1fea1f9ed2fdae4d43dffc0e22f[m
+Author: Nick110 <1589744751@qq.com>
+Date:   Sun Mar 1 14:50:16 2020 +0800
+
+    antd-mobile按需加载问题处理
+
+[33mcommit 5ca5e3c7783e945a31bf9560630e15d46cb37118[m
+Author: Nick110 <1589744751@qq.com>
+Date:   Thu Feb 27 23:05:00 2020 +0800
+
+    添加主页面路由
+
+[33mcommit 95869e9056923990115e737d01829f6f69075444[m
+Author: Nick110 <1589744751@qq.com>
+Date:   Wed Feb 26 20:40:43 2020 +0800
+
+    add iconfont
+
+[33mcommit b5655795002bde3c94e6f9bac7eb1bde3eb4d1b0[m
+Author: Nick110 <1589744751@qq.com>
+Date:   Thu Jan 16 23:57:51 2020 +0800
+
+    reset.less
+
+[33mcommit d04380d585c4983d9153de01d6b367368538e81e[m
+Author: Nick110 <1589744751@qq.com>
+Date:   Wed Jan 15 22:34:34 2020 +0800
+
+    BottomMenu
+
+[33mcommit 4edb3ffc0c9121f04d3aba928ca89aa612a0c649[m
+Author: Nick110 <1589744751@qq.com>
+Date:   Tue Jan 14 18:35:53 2020 +0800
+
+    添加redux、使用useSelector和useDispatch
+
+[33mcommit 3bd8a4e2d82886d374fb11d8ce264ba3ef3c9d56[m
+Author: Nick110 <1589744751@qq.com>
+Date:   Sun Jan 12 23:12:54 2020 +0800
+
+    路由按需加载
+
+[33mcommit 8191ae560c1fcc462e322ae6b709470007b1895e[m
+Author: Nick110 <1589744751@qq.com>
+Date:   Sat Jan 11 21:24:01 2020 +0800
+
+    react路由按需加载
+
+[33mcommit 9490b7f3e83e6da7390906f63826b7f9590bba86[m
+Author: Nick110 <1589744751@qq.com>
+Date:   Sat Jan 4 17:26:29 2020 +0800
+
+    添加React-RouterV4
+
+[33mcommit 9396893ac531024a2ad0696874fb1d762d8f4916[m
+Author: Nick110 <1589744751@qq.com>
+Date:   Fri Jan 3 18:37:10 2020 +0800
+
+    添加TypeScript
+
+[33mcommit 9e699a9527f91ab08d0fd4112d1bbeae6dacf64f[m
+Author: Nick110 <1589744751@qq.com>
+Date:   Fri Dec 27 19:06:12 2019 +0800
+
+    first commit
+
+[33mcommit 16bebe961453a38fd13f3f1aafe9d5b7250ffbd8[m
+Author: Kroos <30553189+Nick110@users.noreply.github.com>
+Date:   Fri Dec 27 19:01:00 2019 +0800
+
+    Add files via upload

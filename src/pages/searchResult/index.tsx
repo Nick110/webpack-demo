@@ -1,6 +1,8 @@
+/** @format */
+
 import React, {useEffect} from 'react';
-import { useSelector, useDispatch } from "react-redux";
-import { SearchBar, Tabs } from 'antd-mobile';
+import {useSelector, useDispatch} from 'react-redux';
+import {SearchBar, Tabs} from 'antd-mobile';
 import {request} from '@/utils/fetch';
 import SongList from '@/components/SongList';
 import Styles from './index.less';
@@ -10,20 +12,19 @@ const tabs = [
         title: '综合',
     },
     {
-        title: '单曲'
+        title: '单曲',
     },
     {
-        title: '云村'
+        title: '云村',
     },
     {
-        title: '歌单'
+        title: '歌单',
     },
     {
-        title: '歌手'
-    }
-]
+        title: '歌手',
+    },
+];
 const searchResult = () => {
-
     // 使用useSelector获取redux值
     const keywords = useSelector(state => state.homeReducer.keywords);
     const {songs} = useSelector(state => state.homeReducer.searchResult);
@@ -44,31 +45,28 @@ const searchResult = () => {
         dispatch({
             type: 'SEARCH',
             payload: {
-                keywords
-            }
-        })
-    }, [])
+                keywords,
+            },
+        });
+    }, []);
 
     console.log(songs);
 
     return (
         <div className={Styles.searchResult}>
             {/* <SearchBar showCancelButton/> */}
-            <Tabs 
-                tabs={tabs} 
+            <Tabs
+                tabs={tabs}
                 renderTabBar={props => <Tabs.DefaultTabBar {...props} page={4} />}
                 tabBarUnderlineStyle={{borderColor: '#c20c0c'}}
-                tabBarActiveTextColor={'#c20c0c'}
-            >
+                tabBarActiveTextColor={'#c20c0c'}>
                 <div className={Styles.single}>
                     <p>播放全部</p>
-                    <SongList list={songs}/>
+                    <SongList list={songs} />
                 </div>
-                
             </Tabs>
-            
         </div>
-    )
-}
+    );
+};
 
 export default searchResult;
