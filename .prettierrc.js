@@ -9,5 +9,6 @@ module.exports = {
     "insertPragma": true,
     "tabWidth": 4,
     "useTabs": false,
-    "endOfLine": "auto"
+    "endOfLine": "auto",
+    "no-var-requires": false
 };
