@@ -5,6 +5,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {SearchBar, Tabs} from 'antd-mobile';
 import {request} from '@/utils/fetch';
 import SongList from '@/components/SongList';
+import Search from '@/components/Search';
 import Styles from './index.less';
 
 const tabs = [
@@ -50,11 +51,20 @@ const searchResult = () => {
         });
     }, []);
 
-    console.log(songs);
+    // console.log(songs);
+
+    const cancelSearch = () => {
+        history.back();
+        dispatch({
+            type: 'CHANGE',
+            payload: {keywords: ''},
+        });
+    };
 
     return (
         <div className={Styles.searchResult}>
             {/* <SearchBar showCancelButton/> */}
+            <Search onCancel={cancelSearch} />
             <Tabs
                 tabs={tabs}
                 renderTabBar={props => <Tabs.DefaultTabBar {...props} page={4} />}
