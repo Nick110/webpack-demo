@@ -1,7 +1,7 @@
 /** @format */
 
 const initialState = {
-    keywords: '海阔天空',
+    keywords: '',
     searchResult: {
         songs: [],
     },
