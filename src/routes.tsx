@@ -1,8 +1,10 @@
+/** @format */
+
 import * as React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
 import Loadable from 'react-loadable';
 
-const MyLoadingComponent = ({ isLoading, error }) => {
+const MyLoadingComponent = ({isLoading, error}) => {
     if (isLoading) {
         return null;
     }
@@ -12,7 +14,6 @@ const MyLoadingComponent = ({ isLoading, error }) => {
     return null;
 };
 
-
 const routes = [
     {
         path: '/',
@@ -20,20 +21,17 @@ const routes = [
         component: Loadable({
             // import里的注释是给打包的文件命名，chunkFilename
             loader: () => import(/* webpackChunkName: "index" */ './pages/index'),
-            loading: MyLoadingComponent
-        })
+            loading: MyLoadingComponent,
+        }),
     },
-]
-
+];
 
 function Routes() {
     return (
         <Switch>
-            {
-                routes.map(route => {
-                    return <Route key={route.path} path={route.path} component={route.component}></Route>
-                })
-            }
+            {routes.map(route => {
+                return <Route key={route.path} path={route.path} component={route.component}></Route>;
+            })}
         </Switch>
     );
 }

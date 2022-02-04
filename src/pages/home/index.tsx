@@ -56,7 +56,7 @@ const Main: FC<IProps> = function (props) {
             <Search />
             <div className={Styles.pageWrapper}>
                 <div className={Styles.red}></div>
-                <Carousel autoplay={true} infinite dots={true} dotActiveStyle={{backgroundColor: '#c20c0c'}}>
+                <Carousel autoplay infinite dots dotActiveStyle={{backgroundColor: '#c20c0c'}}>
                     {banners.map((item, index) => (
                         <img src={item.imageUrl} key={item.targetId}></img>
                     ))}
