@@ -1,23 +1,26 @@
 .home {
-    width: 100%;
-    .pageWrapper {
-        padding: 0 @page-padding;
-        position: relative;
-        :global(.slider-frame) {
-            border-radius: 0.5rem;
-        }
-        .red {
-            width: 100%;
-            height: 2rem;
-            background-color: @main-red;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
+  width: 100%;
+
+  .pageWrapper {
+    padding: 0 @page-padding;
+    position: relative;
+
+    :global(.slider-frame) {
+      border-radius: 0.5rem;
     }
 
-    .moduleTitle {
-        color: @grey-font-color;
-        margin: 2rem 0 0.5rem 0;
+    .red {
+      width: 100%;
+      height: 2rem;
+      background-color: @main-red;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
+  }
+
+  .moduleTitle {
+    color: @grey-font-color;
+    margin: 2rem 0 0.5rem 0;
+  }
 }

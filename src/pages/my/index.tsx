@@ -1,14 +1,9 @@
-import React, {FC} from 'react';
+import React, { FC } from 'react';
 
 interface IProps {
     active?: number;
 }
 
-const my: FC<IProps>  = function (props) {
-
-    return (<div>我的</div>)
-
-
-}
+const my: FC<IProps> = (props) => (<div>我的</div>);
 
 export default my;

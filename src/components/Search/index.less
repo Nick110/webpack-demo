@@ -1,88 +1,93 @@
 .search {
+  width: 100%;
+
+  .hot {
     width: 100%;
-    .hot {
-        width: 100%;
-        position: absolute;
-        top: 4.4rem;
-        bottom: 5rem;
-        overflow: scroll;
-        z-index: 100;
-        background-color: #ffffff;
-        padding: 2rem 0.5rem;
-        box-sizing: border-box;
+    position: absolute;
+    top: 4.4rem;
+    bottom: 5rem;
+    overflow: scroll;
+    z-index: 100;
+    background-color: #ffffff;
+    padding: 2rem 0.5rem;
+    box-sizing: border-box;
 
-        & > p {
-            padding: 0 0 1rem 1.5rem;
-        }
-
-        .hotWrapper {
-            display: flex;
-            flex-wrap: wrap;
-        }
-        .hotItem {
-            width: 50%;
-            display: flex;
-            // justify-content: space-around;
-            align-items: center;
-            padding: 1rem;
-            box-sizing: border-box;
-            & > span {
-                display: inline-block;
-                width: 1.8rem;
-                margin-right: 1rem;
-            }
-        }
-
-        .top4 {
-            & > span {
-                color: @main-red;
-            }
-
-            .searchWord {
-                font-weight: 700;
-            }
-        }
-
-        .searchWord {
-            display: flex;
-            align-items: center;
-            span {
-                line-height: 1.5;
-                max-width: 11rem;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-            }
-
-            span.short {
-                max-width: 9rem;
-            }
-            img {
-                max-width: 2.3rem;
-                margin-left: 0.5rem;
-                max-height: 1.4rem;
-            }
-        }
-
-        .content {
-            width: 12rem;
-            color: #6d6d6d;
-            font-size: 1rem;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            margin-top: 0.8rem;
-        }
+    &>p {
+      padding: 0 0 1rem 1.5rem;
     }
 
-    :global {
-        .am-search {
-            background-color: @main-red;
-            border: none;
-        }
-
-        .am-search-cancel {
-            color: #ffffff;
-        }
+    .hotWrapper {
+      display: flex;
+      flex-wrap: wrap;
     }
+
+    .hotItem {
+      width: 50%;
+      display: flex;
+      // justify-content: space-around;
+      align-items: center;
+      padding: 1rem;
+      box-sizing: border-box;
+
+      &>span {
+        display: inline-block;
+        width: 1.8rem;
+        margin-right: 1rem;
+      }
+    }
+
+    .top4 {
+      &>span {
+        color: @main-red;
+      }
+
+      .searchWord {
+        font-weight: 700;
+      }
+    }
+
+    .searchWord {
+      display: flex;
+      align-items: center;
+
+      span {
+        line-height: 1.5;
+        max-width: 11rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      span.short {
+        max-width: 9rem;
+      }
+
+      img {
+        max-width: 2.3rem;
+        margin-left: 0.5rem;
+        max-height: 1.4rem;
+      }
+    }
+
+    .content {
+      width: 12rem;
+      color: #6d6d6d;
+      font-size: 1rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin-top: 0.8rem;
+    }
+  }
+
+  :global {
+    .am-search {
+      background-color: @main-red;
+      border: none;
+    }
+
+    .am-search-cancel {
+      color: #ffffff;
+    }
+  }
 }

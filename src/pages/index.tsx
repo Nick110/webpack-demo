@@ -11,53 +11,54 @@ import Account from './account';
 import SearchResult from '@/pages/searchResult';
 
 interface IState {
-    count?: number,
-    text: string
+    count?: number;
+    text: string;
 }
 
 class Index extends React.Component<object, IState> {
-    constructor(props) {
-        super(props);
-        this.state = {
-            count: 0,
-            text: 'TypeScript'
-        }
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0,
+      text: 'TypeScript',
+    };
+  }
 
     updateCount = () => {
-        this.setState({
-            count: this.state.count + 1
-        })
+      this.setState({
+        // eslint-disable-next-line react/no-access-state-in-setstate
+        count: this.state.count + 1,
+      });
     }
 
     render() {
-        return (
-            <>
-                {/* <Link to="/hello">to Hello</Link>
+      return (
+        <>
+          {/* <Link to="/hello">to Hello</Link>
                 <Switch>
                     <Route exact path='/hello'>
                         <Hello name="TypeScript" enthusiasmLevel={10} />
                     </Route>
                 </Switch>
-    
+
                 <div>
                     {this.state.text}
                     <p onClick={this.updateCount}>点我增加</p>
                 </div>
                 <Children num={this.state.count}/> */}
-                <div style={{paddingBottom: 60}}>
-                    <Switch style={{paddingBottom: 40}}>
-                        <Route path='/home' component={Home}></Route>
-                        <Route path='/video' component={Video}></Route>
-                        <Route path='/my' component={My}></Route>
-                        <Route path='/yuncun' component={Yuncun}></Route>
-                        <Route path='/account' component={Account}></Route>
-                    </Switch>
-                </div>
-                
-                <BottomMenu/>
-            </>
-        )
+          <div style={{ paddingBottom: 60 }}>
+            <Switch style={{ paddingBottom: 40 }}>
+              <Route path="/home" component={Home} />
+              <Route path="/video" component={Video} />
+              <Route path="/my" component={My} />
+              <Route path="/yuncun" component={Yuncun} />
+              <Route path="/account" component={Account} />
+            </Switch>
+          </div>
+
+          <BottomMenu />
+        </>
+      );
     }
 }
 
