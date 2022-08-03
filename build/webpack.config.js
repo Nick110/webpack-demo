@@ -6,8 +6,12 @@ const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+// const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+// 顾名思义，把资源加到 html 里，那这个插件把 dll 加入到 index.html 里
+const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
+// AddAssetHtmlPlugin的替代，更快捷
+const AutoDllPlugin = require('autodll-webpack-plugin'); // 第 1 步：引入 DLL 自动链接库插件
 
 const devMode = process.env.NODE_ENV === 'development';
 console.log('NODE_ENV ===', process.env.NODE_ENV);
@@ -166,6 +170,24 @@ module.exports = {
       filename: devMode ? 'css/[name].css' : 'css/[name].[hash].css',
       chunkFilename: devMode ? 'css/[id].css' : 'css/[id].[hash].css',
     }),
+    // 自动dll插件
+    new AutoDllPlugin({
+      inject: true, // 设为 true 就把 DLL bundles 插到 index.html 里
+      path: 'js',
+      filename: '[name].dll.js',
+      entry: {
+        lodash: [
+          'lodash',
+        ],
+      },
+    }),
+    // new webpack.DllReferencePlugin({
+    //   // 注意: DllReferencePlugin 的 context 必须和 package.json 的同级目录，要不然会链接失败
+    //   manifest: path.resolve(__dirname, '../dist/dll/vendors-manifest.json'),
+    // }),
+    // new AddAssetHtmlPlugin({
+    //   filepath: path.resolve(__dirname, '../dist/dll/vendors.dll.js'),
+    // }),
     // new HappyPack({
     //     id: 'happyBabel',  // 与loader对应的id标识
     //     // 用法和loader的配置一样，注意这里是loaders
