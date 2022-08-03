@@ -18,7 +18,7 @@ const routes = [
     exact: true,
     component: Loadable({
       // import里的注释是给打包的文件命名，chunkFilename
-      loader: () => import(/* webpackChunkName: "index" */ './pages/index'),
+      loader: () => import(/* webpackChunkName: "indexPage" */ './pages/index'),
       loading: MyLoadingComponent,
     }),
   },

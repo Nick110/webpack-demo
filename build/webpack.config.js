@@ -1,5 +1,4 @@
 // webpack.config.js
-
 const path = require('path');
 const webpack = require('webpack');
 const lessToJs = require('less-vars-to-js');
@@ -10,7 +9,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
-const devMode = process.argv.indexOf('--mode=production') === -1;
+const devMode = process.env.NODE_ENV === 'development';
+console.log('NODE_ENV ===', process.env.NODE_ENV);
 const theme = lessToJs(fs.readFileSync(path.resolve(__dirname, '../src/theme.less'), 'utf8'));
 // HappyPack用于开启多线程Loader转换
 const HappyPack = require('happypack');
@@ -26,7 +26,7 @@ module.exports = {
     filename: 'js/[name].[hash:8].js', // 打包后的文件名称
     path: path.resolve(__dirname, '../dist'), // 打包后的目录
     chunkFilename: 'js/[name].[hash:8].js', // 此选项决定了非入口(non-entry) chunk 文件的名称
-    publicPath: '/',
+    publicPath: './',
   },
 
   module: {
@@ -80,7 +80,9 @@ module.exports = {
       {
         test: /\.less$/,
         use: [
-          'style-loader',
+          {
+            loader: devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+          },
           {
             loader: 'css-loader',
             options: {
@@ -103,6 +105,7 @@ module.exports = {
           {
             loader: 'url-loader',
             options: {
+              // 小于10240会转换成base64处理
               limit: 10240,
               // fallback备用
               fallback: {
@@ -160,8 +163,8 @@ module.exports = {
     new CleanWebpackPlugin(),
     // 把css样式从js文件中提取到单独的css文件中
     new MiniCssExtractPlugin({
-      filename: devMode ? '[name].css' : '[name].[hash].css',
-      chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
+      filename: devMode ? 'css/[name].css' : 'css/[name].[hash].css',
+      chunkFilename: devMode ? 'css/[id].css' : 'css/[id].[hash].css',
     }),
     // new HappyPack({
     //     id: 'happyBabel',  // 与loader对应的id标识

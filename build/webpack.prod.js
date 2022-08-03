@@ -32,10 +32,20 @@ module.exports = merge(webpackConfig, {
     ],
     // 代码分割
     splitChunks: {
+      /*
+      chunks 用以告诉 splitChunks 的作用对象，
+      其可选值有 async、 initial 和 all。
+      默认值是 async，也就是默认只选取异步加载的chunk进行代码拆分
+      */
       chunks: 'all', // all, async, initial
+      /*
+      cacheGroups 有两个默认的组，
+      一个是 vendors，将所有来自 node_modules 目录的模块；
+      一个 default，包含了由两个以上的 chunk 所共享的模块。
+      */
       cacheGroups: {
-        libs: {
-          name: 'chunk-libs',
+        vendors: {
+          name: 'vendors',
           test: /[\\/]node_modules[\\/]/,
           priority: 10,
           chunks: 'initial', // 只打包初始时依赖的第三方
