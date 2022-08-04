@@ -173,7 +173,7 @@ module.exports = {
     // 自动dll插件
     new AutoDllPlugin({
       inject: true, // 设为 true 就把 DLL bundles 插到 index.html 里
-      path: 'js',
+      context: path.resolve(__dirname, '../'), // AutoDllPlugin 的 context 必须和 package.json 的同级目录，要不然会链接失败
       filename: '[name].dll.js',
       entry: {
         lodash: [
@@ -183,10 +183,10 @@ module.exports = {
     }),
     // new webpack.DllReferencePlugin({
     //   // 注意: DllReferencePlugin 的 context 必须和 package.json 的同级目录，要不然会链接失败
-    //   manifest: path.resolve(__dirname, '../dist/dll/vendors-manifest.json'),
+    //   manifest: path.resolve(__dirname, '../dll/vendors-manifest.json'),
     // }),
     // new AddAssetHtmlPlugin({
-    //   filepath: path.resolve(__dirname, '../dist/dll/vendors.dll.js'),
+    //   filepath: path.resolve(__dirname, '../dll/vendors.dll.js'),
     // }),
     // new HappyPack({
     //     id: 'happyBabel',  // 与loader对应的id标识
@@ -211,6 +211,11 @@ module.exports = {
     //     analyzerPort: 8889
     // })
   ],
+  optimization: {
+    runtimeChunk: { // 运行时代码（webpack执行时所需的代码）从主文件中抽离
+      name: (entrypoint) => `runtime-${entrypoint.name}`,
+    },
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, '../src'),

@@ -17,14 +17,14 @@ module.exports = {
     vendors: ['lodash'],
   },
   output: {
-    path: path.resolve(__dirname, '../dist/dll'), // 打包后文件输出的位置
+    path: path.resolve(__dirname, '../dll'), // 打包后文件输出的位置
     filename: '[name].dll.js',
     library: '[name]',
     // 这里需要和webpack.DllPlugin中的`name: '[name]',`保持一致。
   },
   plugins: [
     new webpack.DllPlugin({
-      path: path.resolve(__dirname, '../dist/dll/[name]-manifest.json'),
+      path: path.resolve(__dirname, '../dll/[name]-manifest.json'),
       name: '[name]',
     }),
   ],
